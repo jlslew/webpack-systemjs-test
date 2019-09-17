@@ -3,7 +3,7 @@
   "dependencies": {
     "construct-style-sheets-polyfill": "^2.2.10",
     "exports-loader": "^0.7.0",
-    "systemjs": "^6.1.1",
+    "systemjs": "^6.1.0",
     "terser-webpack-plugin": "^2.0.1",
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.8"

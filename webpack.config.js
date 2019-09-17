@@ -1,4 +1,5 @@
 module.exports = [{
+    mode: 'development',
     entry: {
         main: [
             './main.js'
@@ -9,12 +10,13 @@ module.exports = [{
         libraryTarget: 'system',
         path: __dirname
     },
-    optimization: {
-        minimizer: [
-            new (require('terser-webpack-plugin'))()
+    module: {
+        rules: [
+            {parser: {system: false}}
         ]
     }
 }, {
+    mode: 'development',
     entry: {
         index: './index.js'
     },
@@ -23,24 +25,8 @@ module.exports = [{
         path: __dirname
     },
     module: {
-        rules: [{
-            test: /systemjs/,
-            use: [{
-                loader: 'exports-loader',
-                options: {
-                    'self.System': true
-                }
-            }]
-        }]
-    },
-    optimization: {
-        minimizer: [
-            new (require('terser-webpack-plugin'))()
+        rules: [
+            {parser: {system: false}}
         ]
-    },
-    plugins: [
-        new (require('webpack')).ProvidePlugin({
-            SystemJS: 'systemjs/dist/system.js'
-        })
-    ]
+    }
 }];
